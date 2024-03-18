@@ -18,10 +18,11 @@ public class BeanFactory {
 	}
 
 	/*
-	 * that only matches when no beans meeting the specified requirements are
-	 * already contained in the BeanFactory. None of the requirements must be met
-	 * for the condition to match and the requirements do not have to be met by the
-	 * same bean.
+	 When a bean is annotated with @ConditionalOnMissingBean, it will only be created if there is no other bean of the same type already present in the application context.
+
+	If a bean of the specified type is already defined in the context, the bean annotated with @ConditionalOnMissingBean will not be created, and Spring will use the existing bean.
+
+This annotation is particularly useful when you want to provide default implementations for certain components, but allow users to override them with their own custom implementations if desired.
 	 */
 
 	@Bean
